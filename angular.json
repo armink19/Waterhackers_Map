@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1, 
+  "version": 1,
   "newProjectRoot": "projects",
   "projects": {
     "WaterhackerTest": {
@@ -21,10 +21,18 @@
             "aot": true,
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "**/*",
+                "input": "node_modules/leaflet/dist/images/",
+                "output": "./assets"
+              }
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "./node_modules/leaflet/dist/leaflet.css"
+
+
             ],
             "scripts": []
           },
@@ -43,7 +51,10 @@
               "namedChunks": false,
               "extractLicenses": true,
               "vendorChunk": false,
-              "buildOptimizer": true,
+
+              "buildOptimizer": false,
+             "enableIvy": true,
+              "aot": false,
               "budgets": [
                 {
                   "type": "initial",
@@ -88,7 +99,10 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "./node_modules/leaflet/dist/leaflet.css",
+              "node_modules/leaflet.markercluster/dist/MarkerCluster.css",
+              "node_modules/leaflet.markercluster/dist/MarkerCluster.Default.css"
             ],
             "scripts": []
           }
