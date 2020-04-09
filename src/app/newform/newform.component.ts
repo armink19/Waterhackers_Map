@@ -12,6 +12,7 @@ export interface StepType {
 })
 export class NewformComponent {
  date = new Date();
+
   constructor() { }
 
 
@@ -25,14 +26,13 @@ export class NewformComponent {
         {
           key: 'picture',
           type: 'input',
+          id: 'picture',
           templateOptions: {
             placeholder: 'Picture',
             type: 'file',
-            icon: {
-              slot: 'start',
-              name: 'assets/camera.svg'
-            },
+
             required: true,
+            accept: 'image/*'
 
           },
         },
@@ -109,6 +109,7 @@ required: true
             placeholder: 'Temperature',
             required: true,
           },
+
         },
         {
           key: 'ph',
@@ -175,5 +176,6 @@ required: true
 
   submit() {
     alert(JSON.stringify(this.model));
+
   }
 }

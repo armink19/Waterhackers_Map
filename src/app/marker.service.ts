@@ -26,7 +26,7 @@ export class MarkerService {
         const lon = c.geometry.coordinates[1];
         const marker = L.marker([lon, lat]).addTo(map);
 
-        marker.bindPopup(this.popupService.makePopup(c)).on('click', function(e){  map.setView(e.target.getLatLng(), 11); });
+        marker.bindPopup(this.popupService.makePopup(c)).on('click', function(e){  map.setView(e.target.getLatLng(), map.getZoom()); });
         markers.addLayer(marker);
 
       }
