@@ -6,17 +6,67 @@ body { padding: 10px;
   text-align: center;
   font-family: GothamBook;
 }
+p{
+  font-size: 16px;
+}
 
 picture{
   background-color: greenyellow;
 }
 
-::ng-deep .mat-horizontal-stepper-header-container {
-
-  color: #404f57;
+::ng-deep .mat-step-header{
+  max-width: 25px;
+  //pointer-events: none !important;
 
 
 }
+
+
+::ng-deep .mat-horizontal-stepper-header-container {
+
+  color: lightblue;
+width: 20%;
+  margin-left: 40%;
+
+
+
+}
+
+
+
+::ng-deep .mat-step-header .mat-step-icon {
+  background-color: lightgray;
+  color: lightgray;
+
+
+
+
+}
+::ng-deep .mat-step-header .mat-step-icon-selected {
+  background-color: #ffcc66;
+  color: #ffcc66;
+}
+
+/*::ng-deep mat-step-header .mat-step-icon-not-touched span,
+::ng-deep mat-step-header .mat-step-icon span,
+::ng-deep mat-step-header .mat-step-icon-not-touched .mat-icon,
+::ng-deep mat-step-header .mat-step-icon .mat-icon {
+  display: none;
+}
+
+::ng-deep mat-step-header:nth-of-type(1) .mat-step-icon-not-touched:after,
+::ng-deep mat-step-header:nth-of-type(1) .mat-step-icon:after {
+  content: '';
+}
+
+::ng-deep .active-step-1 mat-step-header:nth-of-type(1) .mat-step-icon-not-touched::after,
+::ng-deep .active-step-1 mat-step-header:nth-of-type(1) .mat-step-icon::after {
+  content: 'add_circle' !important; !* name of the material icon *!
+  font-family: 'Material Icons' !important;
+  font-feature-settings: 'liga' 1;
+}*/
+
+
 
 
 ::ng-deep .formly-field{
@@ -45,6 +95,7 @@ picture{
 }
 
 
+
 ::ng-deep select{
   width: 300px;
   height: 40px;
@@ -52,15 +103,48 @@ picture{
  text-align: center;
   font-size: 20px;
   background-color: #ffcc66;
-  border-color: #ffcc66;
+
   color: white;
+  text-align-last: center;
+  text-align: center;
+  -ms-text-align-last: center;
+  -moz-text-align-last: center;
+
 
 }
+
+::ng-deep textarea{
+  width: 300px;
+  height: 40px;
+  margin: 20px;
+  alignment: center;
+  background-color: #ffcc66;
+  font-size: 20px;
+  color: white;
+  min-height: 40px;
+  max-height: 150px;
+  resize: vertical;
+}
+
+::ng-deep textarea::placeholder{
+  color: white;
+  size: 20px;
+  alignment: center;
+  text-align: center;
+  padding: 22px;
+  text-align-last: center;
+  font-size: 20px;
+
+}
+
+
 ::ng-deep select::placeholder {
   color: white;
   size: 20px;
   text-align: center;
+  text-align-last: center;
   font-size: 20px;
+  text-indent: 40%;
 }
 
 ::ng-deep .formly-field{

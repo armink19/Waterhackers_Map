@@ -1,0 +1,36 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width:100%;
+  height: 70px;
+  background-color: blue;
+  text-align: center;
+  color: white;
+}
+.b{
+  font-family: GothamBold;
+}
+.button{
+  color: #3f4e57;
+}
+.container{
+ display:inline-block;
+  clear: none;
+
+}
+.container_image{
+  display: inline-block;
+  float: left
+}
+
+
+.container_text{
+  vertical-align: top;
+
+  display: inline-block;
+  float: right;
+
+
+}

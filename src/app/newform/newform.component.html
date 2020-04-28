@@ -1,39 +1,57 @@
+
 <body>
 <form [formGroup]="form" (ngSubmit)="submit()">
-  <mat-horizontal-stepper>
-    <!-- change default 'edit' icon -->
-    <ng-template matStepperIcon="edit">
-      <mat-icon></mat-icon>
-    </ng-template>
-    <mat-step *ngFor="let step of steps; let index = index; let last = last;">
+
+  <mat-horizontal-stepper [linear]="true">
+
+    <mat-step  *ngFor="let step of steps; let index = index; let last = last;">
+      <ng-template matStepperIcon="edit">
+        <mat-icon>{{''}}</mat-icon>
+      </ng-template>
       <ng-template matStepLabel>{{ step.label }}</ng-template>
+
+
+      <p *ngIf="index==0" style="font-family: GothamBook">TAKE A PICTURE OF THE WATER AND PLACE YOU ANALYSE</p>
+      <p *ngIf="index==1">TELL US ABOUT WHAT YOU CAN SEE:<br>
+        THE SURROUNDINGS, POTENTIAL CAUSES OF<br>
+        CONTAMINATION, HUMAN ACTIVITIES, FLORA AND FAUNA.</p>
+      <p *ngIf="index==2">ANALYSE THE BASIC PARAMETERS SUCH AS:<br>
+        TEMPERATURE, PH, DISSOLVED OXYGEN AND TURBIDITY.<br>
+        WE CHOSE THESE PARAMETERS BECAUSE THEY CAN GIVE<br>
+        A FAST AND PRECISE IDEA OF THE WATER DIVERSITY.</p>
 
       <formly-form
         [form]="form.at(index)"
         [model]="model"
         [fields]="step.fields"
-        [options]="options[index]">
+        [options]="options[index]"
+      >
       </formly-form>
 
-      <div >
-        <button *ngIf="index !== 0 && !last" matStepperPrevious class="btn btn-primary" type="button" (click)="prevStep(index)">Back</button>
-        <button *ngIf="!last &&index!==2" matStepperNext class="btn btn-primary" type="button" [disabled]="!form.at(index).valid" (click)="nextStep(index)">Next</button>
+      <div>
+        <button *ngIf="index !== 0 && !last" matStepperPrevious class="btn btn-primary" type="button"
+                (click)="prevStep(index)">&laquo;
+        </button>
+        <button *ngIf="!last "   matStepperNext class="btn btn-primary" type="button" [disabled]="!form.at(index).valid"
+                (click)="nextStep(index)">&raquo;
+        </button>
 
-
-
-        <button *ngIf="index==2" matStepperNext class="btn btn-primary" type="button" [disabled]="!form.at(index).valid" (click)="nextStep(index)">Submit</button>
 
       </div>
       <div class="butts">
-        <p *ngIf="last"  style="font-size: 12px; font-family: GothamBold">YOU HAVE RUN THE TESTS, BUT THAT’S JUST THE FIRST STEP.<br>
-          NOW IT’S TIME TO INTERPRET YOUR RESULTS AND DEVELOP A PLAN FOR<br>
-          ACTION. ONCE YOU UNDERSTAND THE HEALTH OF YOUR WATER THEN YOU CAN<br>
-          HELP OTHERS TO PROTECT AND RESTORE IT.<br>
+        <p *ngIf="last" style="font-size: 30px">Well done!</p><br>
+        <p *ngIf="last" style="font-size: 12px; font-family: GothamBold">YOU HAVE RUN THE TESTS, BUT THAT’S JUST A SMALL
+          STEP.<br>
           <br>
           CONTINUE TO EXPERIENCE WATER IN OUR<br>
           WATER HACKER COMMUNITY.</p>
-        <button *ngIf="last"  onclick="location.href = '/map';" style="background-color: #3f4e57; border-color: #3f4e57;width: 300px ">Back to Map</button><br>
-        <button *ngIf="last" onclick="location.href = 'http://water-hackers.lu/';" style="background-color: #ffcc66; border-color: #ffcc66;width: 300px "  >Back to Water-Hackers.lu</button>
+        <button *ngIf="last" onclick="location.href = '/map';"
+                style="background-color: #3f4e57; border-color: #3f4e57;width: 300px ">Back to Map
+        </button>
+        <br>
+        <button *ngIf="last" onclick="location.href = 'http://water-hackers.lu/';"
+                style="background-color: #ffcc66; border-color: #ffcc66;width: 300px ">Back to Water-Hackers.lu
+        </button>
       </div>
     </mat-step>
   </mat-horizontal-stepper>

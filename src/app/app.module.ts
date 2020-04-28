@@ -21,6 +21,9 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { FormlyMatDatepickerModule } from '@ngx-formly/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatIconModule} from '@angular/material/icon';
+import { DetailscreenComponent } from './detailscreen/detailscreen.component';
+import { SamplelistComponent } from './samplelist/samplelist.component';
+
 
 @NgModule({
   declarations: [
@@ -31,8 +34,9 @@ import {MatIconModule} from '@angular/material/icon';
     MapComponent,
     OpenstreetmapComponent,
     LeafletmapComponent,
-    FormComponent,
-    NewformComponent
+    NewformComponent,
+    DetailscreenComponent,
+    SamplelistComponent
   ],
   imports: [
     BrowserModule,

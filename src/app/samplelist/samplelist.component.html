@@ -1,0 +1,39 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2>Sample List</h2>
+  </div>
+  <div class="panel-body">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Description</th>
+        <th>Address</th>
+        <th>Watersource</th>
+        <th>Temperature</th>
+        <th>ph</th>
+        <th>Dissolved oxygen</th>
+        <th>Turbidity</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let sample of samples | async">
+        <td>{{sample.date}}</td>
+        <td>{{sample.time}}</td>
+        <td>{{sample.description}}</td>
+        <td>{{sample.address}}</td>
+        <td>{{sample.watersource}}</td>
+        <td>{{sample.temperature}}</td>
+        <td>{{sample.ph}}</td>
+        <td>{{sample.dissolvedoxygen}}</td>
+        <td>{{sample.turbidity}}</td>
+<!--        <td><button (click)="deleteEmployee(sample.id)" class="btn btn-danger">Delete</button>-->
+        <td>
+          <button (click)="sampledetails(sample.id)" class="btn btn-info" style="margin-left: 10px">Details</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -5,6 +5,8 @@ import {ImagegridComponent} from './imagegrid/imagegrid.component';
 import {MapComponent} from './map/map.component';
 import {LeafletmapComponent} from './leafletmap/leafletmap.component';
 import {NewformComponent} from './newform/newform.component';
+import {SamplelistComponent} from './samplelist/samplelist.component';
+import {DetailscreenComponent} from './detailscreen/detailscreen.component';
 
 
 const routes: Routes = [
@@ -13,7 +15,9 @@ const routes: Routes = [
   {path: 'form2', component: NewformComponent},
   {path: 'imagegrid', component: ImagegridComponent },
   {path: 'map', component: LeafletmapComponent},
-  {path: 'map2', component: MapComponent}
+  {path: 'map2', component: MapComponent},
+  { path: 'samples', component: SamplelistComponent },
+  { path: 'details/:id', component: DetailscreenComponent },
 
 
 ];
@@ -23,4 +27,5 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const routingComponents = [FormComponent, ImagegridComponent, MapComponent,  LeafletmapComponent, NewformComponent];
+export const routingComponents = [FormComponent, ImagegridComponent, MapComponent,  LeafletmapComponent, NewformComponent,
+  SamplelistComponent, DetailscreenComponent];

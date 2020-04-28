@@ -26,6 +26,7 @@
     "@ngx-formly/material": "^5.5.15",
     "@types/googlemaps": "^3.39.3",
     "bootstrap": "^4.4.1",
+    "leaflet-control-geocoder": "^1.13.0",
     "leaflet.markercluster": "^1.4.1",
     "ngx-datepicker-material": "^1.0.1",
     "rxjs": "~6.5.4",
