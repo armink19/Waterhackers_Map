@@ -2,9 +2,19 @@
 @import "~leaflet.markercluster/dist/MarkerCluster.css";
 @import "~leaflet.markercluster/dist/MarkerCluster.Default.css";
 
-
+body{
+  background-color: lightblue;
+  font-family: GothamBold;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+p{
+  padding-top: 20px;
+}
 #map {
   height: 420px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 

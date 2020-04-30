@@ -1,9 +1,33 @@
+<style>
+  @font-face {
+    font-family: 'GothamBold';
+    src: url('~assets/font/Gotham-Bold.otf') format('opentype');
+  }
+
+  @font-face {
+    font-family: 'GothamBook';
+    src: url('~assets/font/Gotham-Book.otf') format('opentype');
+  }
+</style>
+<body>
+<p align="center">“Water Hackers Map” is a digital map of the
+  water quality in Luxembourg.<br>
+  <br>
+  Click here to enter your water sample in the
+  database.
+</p>
+
+<div style="text-align: center">
+  <a routerLink="/form2" routerLinkActive="active"   style="text-align: center"><img src="assets/plus.svg "  width=60px height=60px></a>
+</div>
+
 <link rel="stylesheet" href="https://leaflet.github.io/Leaflet.markercluster/dist/MarkerCluster.css" />
 <link rel="stylesheet" href="https://leaflet.github.io/Leaflet.markercluster/dist/MarkerCluster.Default.css" />
-<div style="text-align: left">
+<div style="text-align: left; margin-left: 5px;margin-bottom: 5px">
   <a routerLink="/imagegrid" routerLinkActive="active"  style="text-align: left"><img width="40px" height="40px"
     src="assets/imagegrid.svg" ></a>
 </div>
+</body>
 <div class="map-container">
   <div class="map-frame">
     <div id="map"></div>

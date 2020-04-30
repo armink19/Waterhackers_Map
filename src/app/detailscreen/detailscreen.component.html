@@ -1,10 +1,11 @@
+<body>
 <h2>Sample Details</h2>
 
 <hr/>
 <div *ngIf="sample" class="container">
   <div class="container_image">
-  <img  src="{{sample.picture}}" style="width:70%">
-    <span style="float: right; vertical-align: middle" > <div>
+  <img  src="{{sample.picture}}" style="width:60%">
+    <span class="info" id="info"  style="float: right; vertical-align: middle" > <div>
     <label><b>Date: </b></label> {{sample.date}}
   </div>
   <div>
@@ -30,7 +31,12 @@
   </div>
   <div>
     <label><b>Turbidity: </b></label> {{sample.turbidity}}
-  </div></span>
+  </div>
+      <br>
+    <button (click)="list()" class="btn btn-primary" style="background-color: #3f4e57; color: white;border-color: #3f4e57;">Back to Sample List</button><br>
+<br>
+<button (click)="map()" class="btn btn-primary" style="background-color: #3f4e57; color: white;border-color: #3f4e57">Back to the Map</button><br>
+    </span>
   </div>
 <div class="container_text">
 
@@ -38,8 +44,6 @@
 </div>
 
 
-<br>
-<br>
-<button (click)="list()" class="btn btn-primary">Back to Sample List</button><br>
-<br>
-<button (click)="map()" class="btn btn-primary">Back to the Map</button><br>
+
+
+</body>

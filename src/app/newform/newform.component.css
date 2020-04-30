@@ -2,7 +2,7 @@
 
 body { padding: 10px;
   alignment: center;
-  background-color: lightblue;
+  background-color: white;
   text-align: center;
   font-family: GothamBook;
 }
@@ -24,7 +24,7 @@ picture{
 
 ::ng-deep .mat-horizontal-stepper-header-container {
 
-  color: lightblue;
+  color: white;
 width: 20%;
   margin-left: 40%;
 

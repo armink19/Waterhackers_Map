@@ -58,11 +58,14 @@ export class NewformComponent implements OnInit {
         {
           key: 'time',
           type: 'input',
-          defaultValue: this.date.toLocaleTimeString(),
+          defaultValue: this.date.getHours() + ':' + this.date.getMinutes(),
           templateOptions: {
             type: 'time',
             placeholder: 'Time',
             required: true,
+            attributes: {
+              style: 'text-indent:60px'
+            }
           },
         },
         {
@@ -75,6 +78,9 @@ export class NewformComponent implements OnInit {
             type: 'datepicker',
 
             required: true,
+            attributes: {
+              style: 'text-indent:100px'
+            }
           }, }
       ],
     },

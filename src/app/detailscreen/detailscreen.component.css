@@ -9,15 +9,25 @@
   text-align: center;
   color: white;
 }
+body{
+  background-color: lightblue;
+}
+h2{
+  alignment: center;
+  text-align: center;
+  margin-top: 30px;
+}
 .b{
   font-family: GothamBold;
 }
 .button{
   color: #3f4e57;
+  padding-left: 10px;
 }
 .container{
  display:inline-block;
   clear: none;
+
 
 }
 .container_image{
@@ -33,4 +43,8 @@
   float: right;
 
 
+}
+.info{
+  font-family: GothamBold;
+  margin: 30px;
 }
