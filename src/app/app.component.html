@@ -17,34 +17,26 @@
     src: url('/assets/font/Gotham-Book.otf') format('opentype');
   }
 </style>
-
+<div style="text-align: center">
 <a  href="http://water-hackers.lu/" routerLinkActive="active">
-  <img  width="168px" height="109px"  style="margin-left: 100px ; margin-top: 100px"  src="assets/logo_water-hackers-01.svg" /></a>
+  <img  width="168px" height="109px"  style="margin-top: 100px"  src="assets/logo_water-hackers-01.svg" /></a>
 
 <a  routerLink="/map" routerLinkActive="active" > <h1>MAP</h1></a>
+</div>
 <body>
 <!--<a  routerLink="/map" routerLinkActive="active"><h1>Waterhackers Map</h1></a>-->
 <div style="text-align: center">
 
-  <br>
-  <br>
+
 </div >
 
-<p align="center">“Water Hackers Map” is a digital map of the
-  water quality in Luxembourg.</p>
-<p align="center">Click here to enter your water sample in the
-  database.</p>
 
-<div style="text-align: center">
-  <a routerLink="/form2" routerLinkActive="active"   style="text-align: center"><img src="assets/plus.svg "  width=60px height=60px></a>
-</div>
 <!--<div style="text-align: left">
   <a routerLink="/imagegrid" routerLinkActive="active"  style="text-align: left"><img
     src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAABmJLR0QA/wD/AP+gvaeTAAAAaklEQVRIiWNgoDPwYmBgeMzAwPAfih8zMDB40kINsiQMP0IzhCI1jFAF/3H4lBGJTZEaJhwSVAcwi55gkXuMxqeKGk8GSFgih6sHmgZqqRkF5IHRDEuymtEMO5phBw6MZliS1Yxm2MGfYQEsMZrS1tw3jgAAAABJRU5ErkJggg=="></a>
 </div>-->
 
-<router-outlet>
-</router-outlet>
+
 
 
 <!--div #mapContainer id="map"></div-->
@@ -59,3 +51,5 @@
 
 
 </body>
+<router-outlet>
+</router-outlet>
