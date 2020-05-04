@@ -7,6 +7,7 @@ import {LeafletmapComponent} from './leafletmap/leafletmap.component';
 import {NewformComponent} from './newform/newform.component';
 import {SamplelistComponent} from './samplelist/samplelist.component';
 import {DetailscreenComponent} from './detailscreen/detailscreen.component';
+import {SubmittedscreenComponent} from './submittedscreen/submittedscreen.component';
 
 
 const routes: Routes = [
@@ -18,6 +19,7 @@ const routes: Routes = [
   {path: 'map2', component: MapComponent},
   { path: 'samples', component: SamplelistComponent },
   { path: 'details/:id', component: DetailscreenComponent },
+  {path: 'submitted', component: SubmittedscreenComponent}
 
 
 ];
@@ -28,4 +30,4 @@ const routes: Routes = [
 })
 export class AppRoutingModule { }
 export const routingComponents = [FormComponent, ImagegridComponent, MapComponent,  LeafletmapComponent, NewformComponent,
-  SamplelistComponent, DetailscreenComponent];
+  SamplelistComponent, DetailscreenComponent, SubmittedscreenComponent];

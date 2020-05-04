@@ -23,7 +23,7 @@ export class DetailscreenComponent implements OnInit {
 
     this.sampleService.getSample(this.id)
       .subscribe(data => {
-        console.log(data)
+        console.log(data);
         this.sample = data;
       }, error => console.log(error));
   }

@@ -10,7 +10,7 @@
   }
 </style>
 <body>
-<form [formGroup]="form" (ngSubmit)="submit()">
+<form [formGroup]="form" (ngSubmit)="submit()" >
 
   <mat-horizontal-stepper [linear]="true">
 
@@ -39,30 +39,18 @@
       </formly-form>
 
       <div>
-        <button *ngIf="index !== 0 && !last" matStepperPrevious class="btn btn-primary" type="button"
-                (click)="prevStep(index)">&laquo;
+        <button *ngIf="index !== 0 " matStepperPrevious class="btn btn-primary" type="button"
+                (click)="prevStep(index)"><
         </button>
         <button *ngIf="!last "   matStepperNext class="btn btn-primary" type="button" [disabled]="!form.at(index).valid"
-                (click)="nextStep(index)">&raquo;
+                (click)="nextStep(index)">>
         </button>
 
+        <button *ngIf="last "   matStepperNext class="btn btn-primary" type="button" [disabled]="!form.at(index).valid"
+                (click)="submit()">>
+        </button>
+      </div>
 
-      </div>
-      <div class="butts">
-        <p *ngIf="last" style="font-size: 30px">Well done!</p><br>
-        <p *ngIf="last" style="font-size: 12px; font-family: GothamBold">YOU HAVE RUN THE TESTS, BUT THAT’S JUST A SMALL
-          STEP.<br>
-          <br>
-          CONTINUE TO EXPERIENCE WATER IN OUR<br>
-          WATER HACKER COMMUNITY.</p>
-        <button *ngIf="last" onclick="location.href = '/map';"
-                style="background-color: #3f4e57; border-color: #3f4e57;width: 300px ">Back to Map
-        </button>
-        <br>
-        <button *ngIf="last" onclick="location.href = 'http://water-hackers.lu/';"
-                style="background-color: #ffcc66; border-color: #ffcc66;width: 300px ">Back to Water-Hackers.lu
-        </button>
-      </div>
     </mat-step>
   </mat-horizontal-stepper>
 </form>

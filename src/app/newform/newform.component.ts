@@ -23,7 +23,7 @@ export class NewformComponent implements OnInit {
 
   sample: Sample = new Sample();
 
-  constructor(private sampleService: SampleService , router: Router) { }
+  constructor(private sampleService: SampleService , private router: Router) { }
  date = new Date();
  coordinates;
 
@@ -197,12 +197,7 @@ required: true
         },
       ],
     },
-    {
-      label: '',
-      fields: [
 
-      ],
-    },
   ];
 
   form = new FormArray(this.steps.map(() => new FormGroup({})));
@@ -242,6 +237,7 @@ required: true
     this.sample.dissolvedoxygen = values.dissolvedoxygen;
     this.sample.turbidity = values.turbidity;
     this.save();
+    this.router.navigate(['submitted']);
   }
   ngOnInit(): void {
 

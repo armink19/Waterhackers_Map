@@ -13,9 +13,11 @@ export class GeocodingService {
         navigator.geolocation.watchPosition((pos: Position) => {
           observer.next(pos);
         }),
+          // tslint:disable-next-line:no-unused-expression
           () => {
             console.log('Position is not available');
           },
+          // tslint:disable-next-line:no-unused-expression
           {
             enableHighAccuracy: true
           };

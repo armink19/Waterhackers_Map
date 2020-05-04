@@ -23,6 +23,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import {MatIconModule} from '@angular/material/icon';
 import { DetailscreenComponent } from './detailscreen/detailscreen.component';
 import { SamplelistComponent } from './samplelist/samplelist.component';
+import { SubmittedscreenComponent } from './submittedscreen/submittedscreen.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { SamplelistComponent } from './samplelist/samplelist.component';
     LeafletmapComponent,
     NewformComponent,
     DetailscreenComponent,
-    SamplelistComponent
+    SamplelistComponent,
+    SubmittedscreenComponent
   ],
   imports: [
     BrowserModule,
