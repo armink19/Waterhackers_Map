@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, isDevMode } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 
@@ -7,7 +7,11 @@ import {Observable} from 'rxjs';
 })
 export class SampleService {
   private baseUrl = 'http://localhost:8080/api/v1/samples';
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+      if (!isDevMode()) {
+          this.baseUrl = '/api/v1/samples';
+      }
+  }
 
   getSample(id: number): Observable<any> {
     return this.http.get(`${this.baseUrl}/${id}`);
