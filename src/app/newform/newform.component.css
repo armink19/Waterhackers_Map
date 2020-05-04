@@ -167,7 +167,8 @@ button[disabled]{
   border-color: #3f4e57;
   color: white;
 
-  text-align: center;
+  display:table-cell;
+  vertical-align:middle;
 
 
 
