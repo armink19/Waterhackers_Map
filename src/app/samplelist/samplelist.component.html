@@ -20,8 +20,8 @@
       </thead>
       <tbody>
       <tr *ngFor="let sample of samples | async">
-        <td>{{sample.date}}</td>
-        <td>{{sample.time}}</td>
+        <td> {{sample.date| date:'dd/MM/yyyy' }}</td>
+        <td>{{sample.time|  date:'HH:mm' }}</td>
         <td>{{sample.description}}</td>
         <td>{{sample.address}}</td>
         <td>{{sample.watersource}}</td>

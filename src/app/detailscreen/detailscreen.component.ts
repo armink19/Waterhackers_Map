@@ -2,16 +2,19 @@ import { Component, OnInit } from '@angular/core';
 import {Sample} from '../sample';
 import {ActivatedRoute, Router} from '@angular/router';
 import {SampleService} from '../sample.service';
+import {DatePipe} from '@angular/common';
 
 @Component({
   selector: 'app-detailscreen',
   templateUrl: './detailscreen.component.html',
   styleUrls: ['./detailscreen.component.css']
 })
+
 export class DetailscreenComponent implements OnInit {
 
   id: number;
   sample: Sample;
+
 
   constructor(private route: ActivatedRoute, private router: Router,
               private sampleService: SampleService) { }
@@ -26,6 +29,7 @@ export class DetailscreenComponent implements OnInit {
         console.log(data);
         this.sample = data;
       }, error => console.log(error));
+
   }
 
   list() {
@@ -35,4 +39,14 @@ export class DetailscreenComponent implements OnInit {
   map() {
     this.router.navigate(['map']);
   }
+  setDateTime(dateTime) {
+    let pipe = new DatePipe('en-US');
+
+    const time = pipe.transform(dateTime, 'mediumTime', 'UTC');
+
+    const date = pipe.transform(dateTime, 'dd/MM/yyyy', 'UTC');
+
+    return date + ' ' + time;
+  }
+
 }
