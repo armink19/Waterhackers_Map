@@ -87,6 +87,7 @@ width: 20%;
 
 
 }
+
 ::ng-deep input::placeholder {
   color: white;
   size: 20px;
@@ -175,6 +176,7 @@ button[disabled]{
 
 
 }
+
 
 
 

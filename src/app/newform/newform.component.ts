@@ -189,11 +189,18 @@ required: true
             required: true,
             type: 'number',
             min: 0,
-            max: 100
+            max: 100,
+            pattern: /^[1-9][0-9]?$|^100$/,
           }, expressionProperties: {
             'templateOptions.min': 'formState.changed ? 500 : 0',
             'templateOptions.max': 'formState.changed ? 510 : 100'
-          }
+          },
+          validation: {
+            messages: {
+              pattern: (error, field: FormlyFieldConfig) => `"${field.formControl.value}" is not a valid Turbidity value.
+              \n Value must be between 0 and 100`,
+            },
+          },
         },
       ],
     },
