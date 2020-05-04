@@ -39,14 +39,14 @@
       </formly-form>
 
       <div>
-        <button *ngIf="index !== 0 " matStepperPrevious class="btn btn-primary" type="button"
+        <button *ngIf="index !== 0 " matStepperPrevious class="btn btn-primary" style="font-size: 40px; bottom: -16px" type="button"
                 (click)="prevStep(index)"><
         </button>
-        <button *ngIf="!last "   matStepperNext class="btn btn-primary" type="button" [disabled]="!form.at(index).valid"
+        <button *ngIf="!last "   matStepperNext class="btn btn-primary" type="button" style="font-size: 40px;bottom: -6px" [disabled]="!form.at(index).valid"
                 (click)="nextStep(index)">>
         </button>
 
-        <button *ngIf="last "   matStepperNext class="btn btn-primary" type="button" [disabled]="!form.at(index).valid"
+        <button *ngIf="last "   matStepperNext class="btn btn-primary" type="button" style="font-size: 40px;bottom: -6px" [disabled]="!form.at(index).valid"
                 (click)="submit()">>
         </button>
       </div>

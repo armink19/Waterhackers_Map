@@ -11,11 +11,11 @@ import {SubmittedscreenComponent} from './submittedscreen/submittedscreen.compon
 
 
 const routes: Routes = [
-  {path: '' , redirectTo: 'map', pathMatch: 'full'},
+ // {path: '' , redirectTo: 'map', pathMatch: 'full'},
   {path: 'form', component: FormComponent},
-  {path: 'form2', component: NewformComponent},
+  {path: 'newSample', component: NewformComponent},
   {path: 'imagegrid', component: ImagegridComponent },
-  {path: 'map', component: LeafletmapComponent},
+  {path: '', component: LeafletmapComponent},
   {path: 'map2', component: MapComponent},
   { path: 'samples', component: SamplelistComponent },
   { path: 'details/:id', component: DetailscreenComponent },
