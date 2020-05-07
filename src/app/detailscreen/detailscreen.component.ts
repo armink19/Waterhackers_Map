@@ -22,7 +22,7 @@ export class DetailscreenComponent implements OnInit {
   ngOnInit() {
     this.sample = new Sample();
 
-    this.id = this.route.snapshot.params['id'];
+    this.id = this.route.snapshot.params[`id`];
 
     this.sampleService.getSample(this.id)
       .subscribe(data => {
@@ -39,14 +39,6 @@ export class DetailscreenComponent implements OnInit {
   map() {
     this.router.navigate(['map']);
   }
-  setDateTime(dateTime) {
-    let pipe = new DatePipe('en-US');
 
-    const time = pipe.transform(dateTime, 'mediumTime', 'UTC');
-
-    const date = pipe.transform(dateTime, 'dd/MM/yyyy', 'UTC');
-
-    return date + ' ' + time;
-  }
 
 }

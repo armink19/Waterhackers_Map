@@ -68,12 +68,14 @@ width: 20%;
 
 
 
-
 ::ng-deep .formly-field{
   alignment: center;
 }
 ::ng-deep formly-form{
   display: inline-block;
+}
+::ng-deep formly-form .required{
+  color: red;
 }
 
 ::ng-deep input{

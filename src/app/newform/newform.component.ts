@@ -6,6 +6,7 @@ import {SampleService} from '../sample.service';
 import {Router} from '@angular/router';
 import {Sample} from '../sample';
 import {DatePipe} from '@angular/common';
+import {Point} from '../point';
 
 export interface StepType {
   label: string;
@@ -23,10 +24,11 @@ export interface StepType {
 export class NewformComponent implements OnInit {
 
   sample: Sample = new Sample();
+ point: Point = new Point();
 
   constructor(private sampleService: SampleService , private router: Router) { }
  date = new Date();
- coordinates;
+
 
   activedStep = 0;
 
@@ -218,10 +220,13 @@ required: true
   prevStep(step) {
 
     this.activedStep = step - 1;
+
   }
 
   nextStep(step) {
+
     this.activedStep = step + 1;
+
   }
 
   save() {
@@ -247,8 +252,23 @@ required: true
     this.save();
     this.router.navigate(['submitted']);
   }
+  locate() {
+    (() => {
+      navigator.geolocation.getCurrentPosition(function(position) {
+          console.log(position.coords.latitude);
+          console.log(position.coords.longitude);
+          this.point.lati = position.coords.latitude;
+          this.point.lngi = position.coords.longitude;
+
+        },
+        error => {
+          console.log('The Locator was denied. :(');
+        });
+    })();
+  }
   ngOnInit(): void {
 
+   this.locate();
 
    /*   this.geoLocationService.getPosition().subscribe(
         (pos: Position) => {

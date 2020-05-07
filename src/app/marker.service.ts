@@ -20,13 +20,13 @@ export class MarkerService {
 
 
     this.http.get(this.dataset).subscribe((res: any) => {
-      let markers = new L.MarkerClusterGroup();
+      const markers = new L.MarkerClusterGroup();
       for (const c of res.features) {
         const lat = c.geometry.coordinates[0];
         const lon = c.geometry.coordinates[1];
         const marker = L.marker([lon, lat]).addTo(map);
 
-        marker.bindPopup(this.popupService.makePopup(c)).on('click', function(e) {  map.setView(e.target.getLatLng(), map.getZoom()); });
+        marker.bindPopup(this.popupService.makePopup(c)).on('click', e => {  map.setView(e.target.getLatLng(), map.getZoom()); });
         markers.addLayer(marker);
 
       }
