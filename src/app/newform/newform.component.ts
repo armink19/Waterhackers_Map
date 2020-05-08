@@ -253,12 +253,13 @@ required: true
     this.router.navigate(['submitted']);
   }
   locate() {
-    (() => {
+     let self = this;
+     (() => {
       navigator.geolocation.getCurrentPosition(function(position) {
           console.log(position.coords.latitude);
           console.log(position.coords.longitude);
-          this.point.lati = position.coords.latitude;
-          this.point.lngi = position.coords.longitude;
+          self.point.lat = position.coords.latitude;
+          self.point.lng = position.coords.longitude;
 
         },
         error => {
