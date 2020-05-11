@@ -260,8 +260,8 @@ required: true
       navigator.geolocation.getCurrentPosition(function(position) {
           console.log(position.coords.latitude);
           console.log(position.coords.longitude);
-          self.point.lng = position.coords.latitude;
-          self.point.lat = position.coords.longitude;
+          self.point.lat = position.coords.latitude;
+          self.point.lng = position.coords.longitude;
 
         },
         error => {
