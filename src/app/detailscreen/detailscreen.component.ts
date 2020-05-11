@@ -37,7 +37,7 @@ export class DetailscreenComponent implements OnInit {
   }
 
   map() {
-    this.router.navigate(['map']);
+    this.router.navigate(['/']);
   }
 
 

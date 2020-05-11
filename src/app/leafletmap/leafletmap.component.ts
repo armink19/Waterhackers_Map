@@ -45,7 +45,7 @@ export class LeafletmapComponent implements OnInit {
   ngOnInit(): void {
     this.initMap();
     this.markerService.getcurrentLocation(this.map, locationmarker);
-    this.markerService.makeCapitalMarkers(this.map);
+    this.markerService.makeSampleMarkers(this.map);
   }
 
 

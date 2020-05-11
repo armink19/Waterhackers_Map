@@ -25,10 +25,11 @@ export class NewformComponent implements OnInit {
 
   sample: Sample = new Sample();
  point: Point = new Point();
-
+  pipe = new DatePipe('en-US');
   constructor(private sampleService: SampleService , private router: Router) { }
  date = new Date();
-
+ formatteddate =  this.pipe.transform(this.date, 'dd/MM/yyyy');
+ formattedtime = this.pipe.transform(this.date, 'HH:mm');
 
   activedStep = 0;
 
@@ -61,7 +62,7 @@ export class NewformComponent implements OnInit {
         {
           key: 'time',
           type: 'input',
-          defaultValue: this.date.getHours() + ':' + this.date.getMinutes(),
+          defaultValue: this.formattedtime,
           templateOptions: {
             type: 'time',
             placeholder: 'Time',
@@ -73,16 +74,16 @@ export class NewformComponent implements OnInit {
         },
         {
           key: 'Datepicker',
-          type: 'datepicker',
+          type: 'input',
 
-          defaultValue: new Date(),
+          defaultValue: this.date.toDateString(),
           templateOptions: {
 
-            type: 'datepicker',
+            type: 'date',
 
             required: true,
             attributes: {
-              style: 'text-indent:100px'
+              style: 'text-indent:50px'
             }
           }, }
       ],
@@ -121,10 +122,10 @@ export class NewformComponent implements OnInit {
             type: 'select',
             placeholder: 'Watersource',
             options: [
-              {label: 'Stream', id: 'stream', value: 'stream'},
-              {label: 'Pond', id: 'pond', value: 'pond'},
-              {label: 'Rain', id: 'rain', value: 'rain'},
-              {label: 'Tap', id: 'tap', value: 'tap'},
+              {label: 'Stream', id: 'stream', value: 'Stream'},
+              {label: 'Pond', id: 'pond', value: 'Pond'},
+              {label: 'Rain', id: 'rain', value: 'Rain'},
+              {label: 'Tap', id: 'tap', value: 'Tap'},
 
             ],
 required: true
@@ -236,14 +237,15 @@ required: true
   }
 
   submit() {
-    alert(JSON.stringify(this.model));
     const temp = JSON.stringify(this.model);
     const values = JSON.parse(temp);
     this.sample.picture = values.picture;
-    this.sample.date = this.date.getDate();
+    this.sample.date = this.date;
     this.sample.time = this.date.getTime();
     this.sample.description = values.description;
     this.sample.address = values.address;
+    this.sample.latitude = this.point.lat;
+    this.sample.longitude = this.point.lng;
     this.sample.watersource = values.watersource;
     this.sample.temperature = values.temperature;
     this.sample.ph = values.ph;
@@ -258,8 +260,8 @@ required: true
       navigator.geolocation.getCurrentPosition(function(position) {
           console.log(position.coords.latitude);
           console.log(position.coords.longitude);
-          self.point.lat = position.coords.latitude;
-          self.point.lng = position.coords.longitude;
+          self.point.lng = position.coords.latitude;
+          self.point.lat = position.coords.longitude;
 
         },
         error => {
@@ -267,6 +269,8 @@ required: true
         });
     })();
   }
+
+
   ngOnInit(): void {
 
    this.locate();

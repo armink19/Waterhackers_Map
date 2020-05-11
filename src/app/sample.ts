@@ -5,6 +5,8 @@ export class Sample {
   time: any;
   description: string;
   address: string;
+  latitude: number;
+  longitude: number;
   watersource: string;
   temperature: number;
   ph: number;

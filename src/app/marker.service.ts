@@ -5,6 +5,9 @@ import 'leaflet.markercluster';
 
 import {PopUpService} from './pop-up.service';
 import {mark} from '@angular/compiler-cli/src/ngtsc/perf/src/clock';
+import {Observable, Subscription} from 'rxjs';
+import {Sample} from './sample';
+import {SampleService} from './sample.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,14 +15,32 @@ import {mark} from '@angular/compiler-cli/src/ngtsc/perf/src/clock';
 export class MarkerService {
 
   dataset = '/assets/data/map.geojson';
+  samples: Observable<Sample[]>;
+  samplesSubscription: Subscription;
+  constructor(private http: HttpClient, private popupService: PopUpService, private sampleService: SampleService) {
+  }
+  makeSampleMarkers(map: L.map): void {
+    this.samplesSubscription = this.sampleService.getSampleList().subscribe((res: any) => {
+      const markers = new L.MarkerClusterGroup();
+      for (const c of res) {
+        const lat = c.latitude;
+        const lon = c.longitude;
+        const marker = L.marker([lon, lat]).addTo(map);
 
-  constructor(private http: HttpClient, private popupService: PopUpService) {
+        marker.bindPopup(this.popupService.makeSamplePopup(c)).on('click', e => {  map.setView(e.target.getLatLng(), map.getZoom()); });
+        markers.addLayer(marker);
+
+      }
+      map.addLayer(markers);
+
+
+    });
   }
 
   makeCapitalMarkers(map: L.map): void {
+      this.samples = this.sampleService.getSampleList();
 
-
-    this.http.get(this.dataset).subscribe((res: any) => {
+      this.http.get(this.dataset).subscribe((res: any) => {
       const markers = new L.MarkerClusterGroup();
       for (const c of res.features) {
         const lat = c.geometry.coordinates[0];
