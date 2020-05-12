@@ -13,7 +13,7 @@ export class PopUpService {
      const imglink = data.picture;
      const urlid = 'http://localhost:4200/details/' + data.id;
     // tslint:disable-next-line:max-line-length
-    return  ' \<a href=' + urlid + '>   <img src=' + imglink + ' style="width:150px; height=150px"></a><br>' +
+    return  ' \<a href=' + urlid + '>   <img src=' + imglink + ' style=height:100px; width="150px"></a><br>' +
       'Watersource:   ' + data.watersource + '<br>' +
       // tslint:disable-next-line:align
       'Date:  ' +  this.pipe.transform(data.date, 'dd/MM/yyyy');

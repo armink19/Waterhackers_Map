@@ -54,7 +54,7 @@ export class NewformComponent implements OnInit {
               style: ''
 
             },
-            accept: '.jpeg,.png',
+            accept: '.jpg',
             icon: 'assets/camera.svg'
           },
 
@@ -74,16 +74,16 @@ export class NewformComponent implements OnInit {
         },
         {
           key: 'Datepicker',
-          type: 'input',
+          type: 'datepicker',
 
-          defaultValue: this.date.toDateString(),
+          defaultValue: this.date,
           templateOptions: {
 
             type: 'date',
 
             required: true,
             attributes: {
-              style: 'text-indent:50px'
+              style: 'text-indent:100px'
             }
           }, }
       ],

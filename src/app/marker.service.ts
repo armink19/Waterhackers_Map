@@ -15,7 +15,7 @@ import {SampleService} from './sample.service';
 export class MarkerService {
 
   dataset = '/assets/data/map.geojson';
-  samples: Observable<Sample[]>;
+
   samplesSubscription: Subscription;
   constructor(private http: HttpClient, private popupService: PopUpService, private sampleService: SampleService) {
   }
@@ -38,7 +38,7 @@ export class MarkerService {
   }
 
   makeCapitalMarkers(map: L.map): void {
-      this.samples = this.sampleService.getSampleList();
+
 
       this.http.get(this.dataset).subscribe((res: any) => {
       const markers = new L.MarkerClusterGroup();
