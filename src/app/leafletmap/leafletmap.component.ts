@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import * as L from 'leaflet';
 
 import { icon, Marker } from 'leaflet';
-import {MarkerService} from '../marker.service';
+import {MarkerService} from '../services/marker.service';
 // const iconRetinaUrl = 'assets/drop.svg';
 const iconUrl = 'assets/waterdrop.svg';
 // const shadowUrl = 'assets/drop.svg';

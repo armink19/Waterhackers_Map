@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Sample} from '../sample';
 import {ActivatedRoute, Router} from '@angular/router';
-import {SampleService} from '../sample.service';
+import {SampleService} from '../services/sample.service';
 import {DatePipe} from '@angular/common';
 
 @Component({

@@ -9,9 +9,9 @@ import { MapComponent } from './map/map.component';
 import {Form} from '@angular/forms';
 import { OpenstreetmapComponent } from './openstreetmap/openstreetmap.component';
 import { LeafletmapComponent } from './leafletmap/leafletmap.component';
-import { MarkerService } from './marker.service';
+import { MarkerService } from './services/marker.service';
 import { HttpClientModule } from '@angular/common/http';
-import {PopUpService} from './pop-up.service';
+import {PopUpService} from './services/pop-up.service';
 import { NewformComponent } from './newform/newform.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -38,7 +38,7 @@ import { SubmittedscreenComponent } from './submittedscreen/submittedscreen.comp
     NewformComponent,
     DetailscreenComponent,
     SamplelistComponent,
-    SubmittedscreenComponent
+    SubmittedscreenComponent,
   ],
   imports: [
     BrowserModule,

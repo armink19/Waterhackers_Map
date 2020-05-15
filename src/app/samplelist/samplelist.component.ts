@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {SampleService} from '../sample.service';
+import {SampleService} from '../services/sample.service';
 import {Observable} from 'rxjs';
 import {Sample} from '../sample';
 import {Router} from '@angular/router';

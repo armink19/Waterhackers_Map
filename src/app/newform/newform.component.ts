@@ -1,12 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import {FormlyFieldConfig, FormlyFormOptions} from '@ngx-formly/core';
 import {FormArray, FormGroup} from '@angular/forms';
-import {GeocodingService} from '../geocoding.service';
-import {SampleService} from '../sample.service';
+import {GeocodingService} from '../services/geocoding.service';
+import {SampleService} from '../services/sample.service';
+import {UploadFileService} from '../services/upload-file.service';
 import {Router} from '@angular/router';
 import {Sample} from '../sample';
 import {DatePipe} from '@angular/common';
 import {Point} from '../point';
+import {Observable} from 'rxjs';
+import {HttpEventType, HttpResponse} from '@angular/common/http';
 
 export interface StepType {
   label: string;
@@ -26,7 +29,14 @@ export class NewformComponent implements OnInit {
   sample: Sample = new Sample();
  point: Point = new Point();
   pipe = new DatePipe('en-US');
-  constructor(private sampleService: SampleService , private router: Router) { }
+  selectedFiles: FileList;
+  currentFile: File;
+  progress = 0;
+  message = '';
+
+  fileInfos: Observable<any>;
+
+  constructor(private sampleService: SampleService , private uploadService: UploadFileService , private router: Router) { }
  date = new Date();
  formatteddate =  this.pipe.transform(this.date, 'dd/MM/yyyy');
  formattedtime = this.pipe.transform(this.date, 'HH:mm');
@@ -240,6 +250,7 @@ required: true
     const temp = JSON.stringify(this.model);
     const values = JSON.parse(temp);
     this.sample.picture = values.picture;
+
     this.sample.date = this.date;
     this.sample.time = this.date.getTime();
     this.sample.description = values.description;
@@ -252,6 +263,8 @@ required: true
     this.sample.dissolvedoxygen = values.dissolvedoxygen;
     this.sample.turbidity = values.turbidity;
     this.save();
+    this.upl(values.picture.toLocaleString());
+
     this.router.navigate(['submitted']);
   }
   locate() {
@@ -269,11 +282,40 @@ required: true
         });
     })();
   }
+  selectFile(event) {
+    this.selectedFiles = event.target.files;
+  }
+
+  upl(file) {
+    this.uploadService.upload(file);
+  }
+  upload() {
+    this.progress = 0;
+
+    this.currentFile = this.selectedFiles.item(0);
+    this.uploadService.upload(this.currentFile).subscribe(
+      event => {
+        if (event.type === HttpEventType.UploadProgress) {
+          this.progress = Math.round(100 * event.loaded / event.total);
+        } else if (event instanceof HttpResponse) {
+          this.message = event.body.message;
+          this.fileInfos = this.uploadService.getFiles();
+        }
+      },
+      err => {
+        this.progress = 0;
+        this.message = 'Could not upload the file!';
+        this.currentFile = undefined;
+      });
+
+    this.selectedFiles = undefined;
+  }
 
 
   ngOnInit(): void {
 
    this.locate();
+   this.fileInfos = this.uploadService.getFiles();
 
    /*   this.geoLocationService.getPosition().subscribe(
         (pos: Position) => {

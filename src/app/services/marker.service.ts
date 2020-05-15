@@ -6,7 +6,7 @@ import 'leaflet.markercluster';
 import {PopUpService} from './pop-up.service';
 import {mark} from '@angular/compiler-cli/src/ngtsc/perf/src/clock';
 import {Observable, Subscription} from 'rxjs';
-import {Sample} from './sample';
+import {Sample} from '../sample';
 import {SampleService} from './sample.service';
 
 @Injectable({
