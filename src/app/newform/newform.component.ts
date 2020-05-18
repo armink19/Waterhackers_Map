@@ -48,7 +48,7 @@ export class NewformComponent implements OnInit {
     {
       label: '',
       fields: [
-        {
+     /*   {
 
           key: 'picture',
           type: 'input',
@@ -58,7 +58,7 @@ export class NewformComponent implements OnInit {
 
             placeholder: 'Picture',
             type: 'file',
-
+            URL: 'http://localhost:8080/api/v1/files' ,
             required: true,
             attributes: {
               style: ''
@@ -68,7 +68,7 @@ export class NewformComponent implements OnInit {
             icon: 'assets/camera.svg'
           },
 
-        },
+        },*/
         {
           key: 'time',
           type: 'input',
@@ -249,7 +249,6 @@ required: true
   submit() {
     const temp = JSON.stringify(this.model);
     const values = JSON.parse(temp);
-    this.sample.picture = values.picture;
 
     this.sample.date = this.date;
     this.sample.time = this.date.getTime();
@@ -262,8 +261,9 @@ required: true
     this.sample.ph = values.ph;
     this.sample.dissolvedoxygen = values.dissolvedoxygen;
     this.sample.turbidity = values.turbidity;
+    this.upload();
     this.save();
-    this.upl(values.picture.toLocaleString());
+
 
     this.router.navigate(['submitted']);
   }
@@ -289,6 +289,7 @@ required: true
   upl(file) {
     this.uploadService.upload(file);
   }
+
   upload() {
     this.progress = 0;
 
