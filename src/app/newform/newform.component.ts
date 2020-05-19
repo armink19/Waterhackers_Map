@@ -3,7 +3,6 @@ import {FormlyFieldConfig, FormlyFormOptions} from '@ngx-formly/core';
 import {FormArray, FormGroup} from '@angular/forms';
 import {GeocodingService} from '../services/geocoding.service';
 import {SampleService} from '../services/sample.service';
-import {UploadFileService} from '../services/upload-file.service';
 import {Router} from '@angular/router';
 import {Sample} from '../sample';
 import {DatePipe} from '@angular/common';
@@ -36,7 +35,7 @@ export class NewformComponent implements OnInit {
 
   fileInfos: Observable<any>;
 
-  constructor(private sampleService: SampleService , private uploadService: UploadFileService , private router: Router) { }
+  constructor(private sampleService: SampleService , private router: Router) { }
  date = new Date();
  formatteddate =  this.pipe.transform(this.date, 'dd/MM/yyyy');
  formattedtime = this.pipe.transform(this.date, 'HH:mm');
@@ -241,7 +240,7 @@ required: true
   }
 
   save() {
-    this.sampleService.createSample(this.sample)
+    this.sampleService.createSample(this.sample, this.selectedFiles.item(0))
       .subscribe(data => console.log(data), error => console.log(error));
     this.sample = new Sample();
   }
@@ -261,7 +260,6 @@ required: true
     this.sample.ph = values.ph;
     this.sample.dissolvedoxygen = values.dissolvedoxygen;
     this.sample.turbidity = values.turbidity;
-    this.upload();
     this.save();
 
 
@@ -286,37 +284,9 @@ required: true
     this.selectedFiles = event.target.files;
   }
 
-  upl(file) {
-    this.uploadService.upload(file);
-  }
-
-  upload() {
-    this.progress = 0;
-
-    this.currentFile = this.selectedFiles.item(0);
-    this.uploadService.upload(this.currentFile).subscribe(
-      event => {
-        if (event.type === HttpEventType.UploadProgress) {
-          this.progress = Math.round(100 * event.loaded / event.total);
-        } else if (event instanceof HttpResponse) {
-          this.message = event.body.message;
-          this.fileInfos = this.uploadService.getFiles();
-        }
-      },
-      err => {
-        this.progress = 0;
-        this.message = 'Could not upload the file!';
-        this.currentFile = undefined;
-      });
-
-    this.selectedFiles = undefined;
-  }
-
-
   ngOnInit(): void {
 
    this.locate();
-   this.fileInfos = this.uploadService.getFiles();
 
    /*   this.geoLocationService.getPosition().subscribe(
         (pos: Position) => {

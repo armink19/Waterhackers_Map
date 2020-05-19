@@ -18,8 +18,12 @@ export class SampleService {
   }
 
   // tslint:disable-next-line:ban-types
-  createSample(sample: Object): Observable<Object> {
-    return this.http.post(`${this.baseUrl}`, sample);
+  createSample(sample: Object, photo: File): Observable<Object> {
+    const formData = new FormData();
+    formData.append('sample', new Blob([JSON.stringify(sample)], { type: "application/json" }));
+    formData.append('file', photo);
+
+    return this.http.post(`${this.baseUrl}`, formData);
   }
 
   getSampleList(): Observable<any> {

@@ -1,16 +1,15 @@
 import { Injectable } from '@angular/core';
 import {DatePipe} from '@angular/common';
-import {UploadFileService} from '../services/upload-file.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PopUpService {
   pipe = new DatePipe('en-US');
-  constructor(private uploadService: UploadFileService) { }
+  constructor() { }
 
   makeSamplePopup(data: any): string {
-     const photo = 'http://localhost:8080/api/v1/files/' + data.id + '.jpg' ;
+     const photo = 'http://localhost:8080/api/v1/samples/' + data.id + '/photo' ; // TODO use thumbnail instead
      console.log(photo);
      const imglink = data.picture;
      const urlid = 'http://localhost:4200/details/' + data.id;
