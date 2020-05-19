@@ -204,7 +204,7 @@ required: true
             type: 'number',
             min: 0,
             max: 100,
-            pattern: /^[1-9][0-9]?$|^100$/,
+            pattern: /^[0-9][0-9]?$|^100$/,
           }, expressionProperties: {
             'templateOptions.min': 'formState.changed ? 500 : 0',
             'templateOptions.max': 'formState.changed ? 510 : 100'
