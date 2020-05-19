@@ -32,8 +32,8 @@ export class DetailscreenComponent implements OnInit {
 
   }
 
-  list() {
-    this.router.navigate(['samples']);
+  grid() {
+    this.router.navigate(['imagegrid']);
   }
 
   map() {

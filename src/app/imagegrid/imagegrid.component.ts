@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {Observable} from 'rxjs';
+import {Sample} from '../sample';
+import {SampleService} from '../services/sample.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-imagegrid',
@@ -9,9 +13,17 @@ export class ImagegridComponent implements OnInit {
 
   // TODO get all samples, use their ids to generate their photo/thumbnail urls,
   // insert them into html.
-  constructor() { }
+  samples: Observable<Sample[]>;
 
-  ngOnInit(): void {
+  constructor(private sampleService: SampleService,
+              private router: Router) {}
+
+  ngOnInit() {
+    this.reloadData();
+  }
+
+  reloadData() {
+    this.samples = this.sampleService.getSampleList();
   }
 
 }
