@@ -25,11 +25,12 @@ export class MarkerService {
       for (const c of res) {
         const lat = c.latitude;
         const lon = c.longitude;
-        const marker = L.marker([lat, lon ]).addTo(map);
+        if (lat !== null && lon !== null) {
+          const marker = L.marker([lat, lon ]).addTo(map);
 
-        marker.bindPopup(this.popupService.makeSamplePopup(c)).on('click', e => {  map.setView(e.target.getLatLng(), map.getZoom()); });
-        markers.addLayer(marker);
-
+          marker.bindPopup(this.popupService.makeSamplePopup(c)).on('click', e => {  map.setView(e.target.getLatLng(), map.getZoom()); });
+          markers.addLayer(marker);
+        }
       }
       map.addLayer(markers);
 
