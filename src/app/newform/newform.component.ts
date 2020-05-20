@@ -125,6 +125,25 @@ export class NewformComponent implements OnInit {
           },
         },
         {
+          key: 'latitude',
+          type: 'input',
+          templateOptions: {
+
+            placeholder: 'Latitude',
+            required: true,
+          },
+        },
+        {
+          key: 'longitude',
+          type: 'input',
+
+          templateOptions: {
+
+            placeholder: 'Longitude',
+            required: true,
+          },
+        },
+        {
           key: 'watersource',
           type: 'select',
           templateOptions: {
@@ -253,8 +272,10 @@ required: true
     this.sample.time = this.date.getTime();
     this.sample.description = values.description;
     this.sample.address = values.address;
-    this.sample.latitude = this.point.lat;
-    this.sample.longitude = this.point.lng;
+   // this.sample.latitude = this.point.lat;
+    this.sample.latitude = values.latitude;
+   // this.sample.longitude = this.point.lng;
+    this.sample.longitude = values.longitude;
     this.sample.watersource = values.watersource;
     this.sample.temperature = values.temperature;
     this.sample.ph = values.ph;
