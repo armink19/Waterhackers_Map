@@ -19,8 +19,8 @@
 
 <div class="row text-lg-left"  style="margin-left: 10px;margin-right: 10px">
   <div class="col-lg-3 col-md-4 col-xs-6" *ngFor="let sample of samples | async" >
-    <a href="http://localhost:4200/details/{{sample.id}}" class="d-block mb-4 h-100">
-      <img  class="img-fluid img-thumbnail" src="http://localhost:8080/api/v1/samples/{{sample.id}}/photo" style="height: 300px; width: 400px">
+    <a href="/details/{{sample.id}}" class="d-block mb-4 h-100">
+      <img  class="img-fluid img-thumbnail" src="{{backendUrl}}/{{sample.id}}/photo" style="height: 300px; width: 400px">
     </a>
     <br>
   </div>
@@ -63,7 +63,7 @@
 -->
 
 </div>
-<a href="http://localhost:8080/api/v1/samples"   style="margin-left: 10px">
+<a href="{{backendUrl}}"   style="margin-left: 10px">
   Click here if you want to collect the sample data
 </a>
 

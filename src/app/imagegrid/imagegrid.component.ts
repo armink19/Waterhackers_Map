@@ -14,12 +14,14 @@ export class ImagegridComponent implements OnInit {
   // TODO get all samples, use their ids to generate their photo/thumbnail urls,
   // insert them into html.
   samples: Observable<Sample[]>;
+  backendUrl: String;
 
   constructor(private sampleService: SampleService,
               private router: Router) {}
 
   ngOnInit() {
     this.reloadData();
+    this.backendUrl = SampleService.getBackendUrl();
   }
 
   reloadData() {

@@ -6,15 +6,19 @@ import {Observable} from 'rxjs';
   providedIn: 'root'
 })
 export class SampleService {
-  private baseUrl = 'http://localhost:8080/api/v1/samples';
+  private static backendUrl = 'http://localhost:8080/api/v1/samples';
   constructor(private http: HttpClient) {
       if (!isDevMode()) {
-          this.baseUrl = '/api/v1/samples';
+          SampleService.backendUrl = '/api/v1/samples';
       }
   }
 
+  static getBackendUrl() {
+    return SampleService.backendUrl;
+  }
+
   getSample(id: number): Observable<any> {
-    return this.http.get(`${this.baseUrl}/${id}`);
+    return this.http.get(`${SampleService.backendUrl}/${id}`);
   }
 
   // tslint:disable-next-line:ban-types
@@ -23,11 +27,11 @@ export class SampleService {
     formData.append('sample', new Blob([JSON.stringify(sample)], { type: "application/json" }));
     formData.append('file', photo);
 
-    return this.http.post(`${this.baseUrl}`, formData);
+    return this.http.post(`${SampleService.backendUrl}`, formData);
   }
 
   getSampleList(): Observable<any> {
-    return this.http.get(`${this.baseUrl}`);
+    return this.http.get(`${SampleService.backendUrl}`);
   }
 
   deleteSample(id: number) {

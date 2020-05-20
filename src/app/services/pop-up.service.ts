@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {DatePipe} from '@angular/common';
+import { SampleService } from './sample.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,10 +10,10 @@ export class PopUpService {
   constructor() { }
 
   makeSamplePopup(data: any): string {
-     const photo = 'http://localhost:8080/api/v1/samples/' + data.id + '/photo' ; // TODO use thumbnail instead
+     const photo = SampleService.getBackendUrl() + '/' + data.id + '/photo' ; // TODO use thumbnail instead
      console.log(photo);
      const imglink = data.picture;
-     const urlid = 'http://localhost:4200/details/' + data.id;
+     const urlid = '/details/' + data.id;
     // tslint:disable-next-line:max-line-length
     return  ' \<a href=' + urlid + '>   <img src=' + photo + ' style=height:100px; width="150px"></a><br>' +
       'Watersource:   ' + data.watersource + '<br>' +

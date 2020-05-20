@@ -14,6 +14,7 @@ export class DetailscreenComponent implements OnInit {
 
   id: number;
   sample: Sample;
+  imageUrl: String;
 
 
   constructor(private route: ActivatedRoute, private router: Router,
@@ -28,6 +29,7 @@ export class DetailscreenComponent implements OnInit {
       .subscribe(data => {
         console.log(data);
         this.sample = data;
+        this.imageUrl = SampleService.getBackendUrl() + '/' + data.id + '/photo';
       }, error => console.log(error));
 
   }

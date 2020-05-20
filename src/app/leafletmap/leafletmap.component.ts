@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SampleService } from '../services/sample.service';
 import * as L from 'leaflet';
 
 import { icon, Marker } from 'leaflet';
@@ -38,6 +39,9 @@ const data = 'assets/data/map.geojson';
   styleUrls: ['./leafletmap.component.css']
 })
 export class LeafletmapComponent implements OnInit {
+
+  backendUrl: String;
+
   constructor(private markerService: MarkerService) { }
  private  map;
 
@@ -46,6 +50,7 @@ export class LeafletmapComponent implements OnInit {
     this.initMap();
     this.markerService.getcurrentLocation(this.map, locationmarker);
     this.markerService.makeSampleMarkers(this.map);
+    this.backendUrl = SampleService.getBackendUrl();
   }
 
 
