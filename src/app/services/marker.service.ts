@@ -73,12 +73,11 @@ export class MarkerService {
      }
 
      map.on('locationfound', onLocationFound);
+
      function onLocationError(e) {
-      alert(e.message);
+      console.log(e.message);
     }
-
-
-     map.on('locationerror', onLocationError);
+    map.on('locationerror', onLocationError);
   }
 
 
