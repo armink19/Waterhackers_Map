@@ -109,40 +109,13 @@ export class NewformComponent implements OnInit {
           templateOptions: {
             placeholder: 'Description',
             required: true,
+            maxLength: 100,
             attributes: {
               style: 'height:80px'
             }
           },
         },
-        {
-          key: 'address',
-          type: 'input',
-          id: 'location-input-section',
-          templateOptions: {
 
-            placeholder: 'Address',
-            required: true,
-          },
-        },
-        {
-          key: 'latitude',
-          type: 'input',
-          templateOptions: {
-
-            placeholder: 'Latitude',
-            required: true,
-          },
-        },
-        {
-          key: 'longitude',
-          type: 'input',
-
-          templateOptions: {
-
-            placeholder: 'Longitude',
-            required: true,
-          },
-        },
         {
           key: 'watersource',
           type: 'select',
@@ -150,13 +123,23 @@ export class NewformComponent implements OnInit {
             type: 'select',
             placeholder: 'Watersource',
             options: [
-              {label: 'Stream', id: 'stream', value: 'Stream'},
-              {label: 'Pond', id: 'pond', value: 'Pond'},
+              {label: 'River', id: 'river', value: 'River'},
+              {label: 'Lake', id: 'lake', value: 'Lake'},
               {label: 'Rain', id: 'rain', value: 'Rain'},
               {label: 'Tap', id: 'tap', value: 'Tap'},
 
             ],
 required: true
+          },
+        },
+        {
+          key: 'location',
+          type: 'input',
+          id: 'location-input-section',
+          templateOptions: {
+
+            placeholder: 'Location',
+            required: true,
           },
         },
       ],
@@ -272,10 +255,8 @@ required: true
     this.sample.time = this.date.getTime();
     this.sample.description = values.description;
     this.sample.address = values.address;
-   // this.sample.latitude = this.point.lat;
-    this.sample.latitude = values.latitude;
-   // this.sample.longitude = this.point.lng;
-    this.sample.longitude = values.longitude;
+    this.sample.latitude = this.point.lat;
+    this.sample.longitude = this.point.lng;
     this.sample.watersource = values.watersource;
     this.sample.temperature = values.temperature;
     this.sample.ph = values.ph;

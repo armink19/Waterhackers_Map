@@ -126,7 +126,7 @@ width: 20%;
   color: white;
   min-height: 40px;
   max-height: 150px;
-  resize: vertical;
+  resize: none;
 }
 
 ::ng-deep textarea::placeholder{
