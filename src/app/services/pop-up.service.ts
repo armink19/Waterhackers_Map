@@ -10,7 +10,7 @@ export class PopUpService {
   constructor() { }
 
   makeSamplePopup(data: any): string {
-     const photo = SampleService.getBackendUrl() + '/' + data.id + '/photo' ; // TODO use thumbnail instead
+     const photo = SampleService.getBackendUrl() + '/' + data.id + '/thumbnail' ; // TODO use thumbnail instead
      console.log(photo);
      const imglink = data.picture;
      const urlid = '/details/' + data.id;

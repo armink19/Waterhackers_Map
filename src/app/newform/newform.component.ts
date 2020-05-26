@@ -82,7 +82,7 @@ export class NewformComponent implements OnInit {
           },
         },
         {
-          key: 'Datepicker',
+          key: 'datepicker',
           type: 'datepicker',
 
           defaultValue: this.date,
@@ -131,6 +131,22 @@ export class NewformComponent implements OnInit {
             ],
 required: true
           },
+        },{
+          key: 'municipality',
+          type: 'select',
+          templateOptions: {
+            type: 'select' ,
+            placeholder: 'Municipality',
+            options: [
+              {label: 'Luxembourg', id: 'luxembourg', value: 'Luxembourg'},
+              {label: 'Esch', id: 'esch', value: 'Esch'},
+              {label: 'Diekirch', id: 'diekirch', value: 'Diekirch'},
+              {label: 'Differdange', id: 'differdange', value: 'Differdange'},
+
+            ],
+
+          },
+          hideExpression: '!model.watersource'
         },
         {
           key: 'location',
@@ -251,10 +267,10 @@ required: true
     const temp = JSON.stringify(this.model);
     const values = JSON.parse(temp);
 
-    this.sample.date = this.date;
-    this.sample.time = this.date.getTime();
+    this.sample.date = values.datepicker;
+    this.sample.time = Date.parse(values.time);
     this.sample.description = values.description;
-    this.sample.address = values.address;
+    this.sample.address = values.location;
     this.sample.latitude = this.point.lat;
     this.sample.longitude = this.point.lng;
     this.sample.watersource = values.watersource;
