@@ -34,6 +34,8 @@ export class DetailscreenComponent implements OnInit {
 
   }
 
+
+
   grid() {
     this.router.navigate(['imagegrid']);
   }
@@ -41,6 +43,7 @@ export class DetailscreenComponent implements OnInit {
   map() {
     this.router.navigate(['/']);
   }
+
 
 
 }

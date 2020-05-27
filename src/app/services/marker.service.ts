@@ -14,7 +14,7 @@ import {SampleService} from './sample.service';
 })
 export class MarkerService {
 
-  dataset = '/assets/data/map.geojson';
+ // dataset = '/assets/data/map.geojson';
 
   samplesSubscription: Subscription;
   constructor(private http: HttpClient, private popupService: PopUpService, private sampleService: SampleService) {
@@ -38,7 +38,7 @@ export class MarkerService {
     });
   }
 
-  makeCapitalMarkers(map: L.map): void {
+/*  makeCapitalMarkers(map: L.map): void {
 
 
       this.http.get(this.dataset).subscribe((res: any) => {
@@ -57,7 +57,7 @@ export class MarkerService {
 
     });
 
-  }
+  }*/
 
 
 
@@ -78,7 +78,7 @@ export class MarkerService {
      function onLocationError(e) {
       console.log(e.message);
     }
-    map.on('locationerror', onLocationError);
+     map.on('locationerror', onLocationError);
   }
 
 

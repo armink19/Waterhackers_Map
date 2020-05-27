@@ -37,7 +37,6 @@ export class NewformComponent implements OnInit {
 
   constructor(private sampleService: SampleService , private router: Router) { }
  date = new Date();
- formatteddate =  this.pipe.transform(this.date, 'dd/MM/yyyy');
  formattedtime = this.pipe.transform(this.date, 'HH:mm');
 
   activedStep = 0;
@@ -83,18 +82,21 @@ export class NewformComponent implements OnInit {
         },
         {
           key: 'datepicker',
-          type: 'datepicker',
+          type: 'input',
 
-          defaultValue: this.date,
+          defaultValue: this.date.toLocaleDateString('en-CA'),
           templateOptions: {
 
             type: 'date',
 
             required: true,
             attributes: {
-              style: 'text-indent:100px'
-            }
-          }, }
+              style: 'text-indent:50px',
+            },
+
+            },
+
+        }
       ],
     },
 
@@ -131,7 +133,7 @@ export class NewformComponent implements OnInit {
             ],
 required: true
           },
-        },{
+        }, {
           key: 'municipality',
           type: 'select',
           templateOptions: {
@@ -146,7 +148,7 @@ required: true
             ],
 
           },
-          hideExpression: '!model.watersource'
+          hideExpression: 'model.watersource!="River"'
         },
         {
           key: 'location',
@@ -268,7 +270,7 @@ required: true
     const values = JSON.parse(temp);
 
     this.sample.date = values.datepicker;
-    this.sample.time = Date.parse(values.time);
+    this.sample.time = values.time;
     this.sample.description = values.description;
     this.sample.address = values.location;
     this.sample.latitude = this.point.lat;

@@ -10,9 +10,7 @@ p{
   font-size: 16px;
 }
 
-picture{
-  background-color: greenyellow;
-}
+
 
 ::ng-deep .mat-step-header{
   max-width: 25px;
@@ -20,13 +18,16 @@ picture{
 
 
 }
+::ng-deep .mat-horizontal-stepper-header{}
 
 
 ::ng-deep .mat-horizontal-stepper-header-container {
 
   color: white;
-width: 20%;
-  margin-left: 40%;
+  width: 210px;
+  margin-left: auto;
+  margin-right: auto;
+
 
 
 
@@ -47,44 +48,59 @@ width: 20%;
   color: #ffcc66;
 }
 
-/*::ng-deep mat-step-header .mat-step-icon-not-touched span,
-::ng-deep mat-step-header .mat-step-icon span,
-::ng-deep mat-step-header .mat-step-icon-not-touched .mat-icon,
-::ng-deep mat-step-header .mat-step-icon .mat-icon {
-  display: none;
-}
 
-::ng-deep mat-step-header:nth-of-type(1) .mat-step-icon-not-touched:after,
-::ng-deep mat-step-header:nth-of-type(1) .mat-step-icon:after {
-  content: '';
-}
-
-::ng-deep .active-step-1 mat-step-header:nth-of-type(1) .mat-step-icon-not-touched::after,
-::ng-deep .active-step-1 mat-step-header:nth-of-type(1) .mat-step-icon::after {
-  content: 'add_circle' !important; !* name of the material icon *!
-  font-family: 'Material Icons' !important;
-  font-feature-settings: 'liga' 1;
-}*/
 
 
 
 ::ng-deep .formly-field{
   alignment: center;
 }
+
 ::ng-deep formly-form{
   display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
 }
-::ng-deep formly-form .required{
-  color: red;
+
+
+::ng-deep formly-field-input:valid{
+  border-color: #ffcc66;
 }
+
+formly-field-input:r
+
+
+::ng-deep formly-field-input:required{
+  border-color: red;
+  border-width: 3px;
+}
+
+/*::ng-deep formly-form input:required {
+  border-color: red;
+  border-width: 3px;
+
+}*/
+
+::ng-deep formly-form input:valid{
+  border-color:#ffcc66;
+  border-width: 3px;
+
+}
+/*::ng-deep formly-form textarea:required{
+  border-color: red;
+  border-width: 3px;
+
+}*/
 
 ::ng-deep input{
   width: 300px;
   height: 40px;
-  margin: 20px;
+  margin-bottom: 20px;
+  margin-top: 20px;
   alignment: center;
+  border: #ffcc66;
   background-color: #ffcc66;
-  border-color: #ffcc66;
+
   font-size: 20px;
   color: white;
 
@@ -98,16 +114,26 @@ width: 20%;
 
 }
 
+::ng-deep input:required {
+
+  border-width: 3px;
+  border-color: red !important;
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+}
+
+
 
 
 ::ng-deep select{
   width: 300px;
   height: 40px;
-  margin: 20px;
+   margin-bottom: 20px;
+  margin-top: 20px;
  text-align: center;
   font-size: 20px;
   background-color: #ffcc66;
-
+  border-color: #ffcc66;
   color: white;
   text-align-last: center;
   text-align: center;
@@ -120,9 +146,11 @@ width: 20%;
 ::ng-deep textarea{
   width: 300px;
   height: 40px;
-  margin: 20px;
+  margin-bottom: 20px;
+  margin-top: 20px;
   alignment: center;
   background-color: #ffcc66;
+  border-color: #ffcc66;
   font-size: 20px;
   color: white;
   min-height: 40px;
@@ -171,8 +199,9 @@ button[disabled]{
   border-color: #3f4e57;
   color: white;
 
-  display:table-cell;
+  //display:table-cell;
   vertical-align:middle;
+  line-height: 20px;
 
 
 

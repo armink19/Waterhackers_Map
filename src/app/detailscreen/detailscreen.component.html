@@ -1,3 +1,4 @@
+
 <body>
 <h2>Sample Details</h2>
 
@@ -9,7 +10,7 @@
     <label><b>Date: </b></label> {{sample.date| date:'dd/MM/yyyy' }}
   </div>
   <div>
-    <label><b>Time: </b></label> {{sample.time|  date:'HH:mm' }}
+    <label><b>Time: </b></label> {{sample.time| slice: 0:5}}
   </div>
   <div>
     <label><b>Description: </b></label> {{sample.description}}
@@ -52,3 +53,4 @@
 
 
 </body>
+
