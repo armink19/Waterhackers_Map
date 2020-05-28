@@ -134,21 +134,52 @@ export class NewformComponent implements OnInit {
 required: true
           },
         }, {
-          key: 'municipality',
+          key: 'river',
           type: 'select',
           templateOptions: {
             type: 'select' ,
-            placeholder: 'Municipality',
+            placeholder: 'River Name',
             options: [
-              {label: 'Luxembourg', id: 'luxembourg', value: 'Luxembourg'},
-              {label: 'Esch', id: 'esch', value: 'Esch'},
-              {label: 'Diekirch', id: 'diekirch', value: 'Diekirch'},
-              {label: 'Differdange', id: 'differdange', value: 'Differdange'},
+              {label: 'Moselle', id: 'moselle', value: 'Moselle'},
+              {label: 'Sauer', id: 'sauer', value: 'Sauer'},
+              {label: 'Black Ernz', id: 'blackernz', value: 'Black Ernz'},
+              {label: 'White Ernz', id: 'whiteernz', value: 'White Ernz'},
+              {label: 'Our', id: 'our', value: 'Our'},
+              {label: 'Blees', id: 'blees', value: 'Blees'},
+              {label: 'Alzette', id: 'alzette', value: 'Alzette'},
+              {label: 'Wark', id: 'wark', value: 'Wark'},
+              {label: 'Attert', id: 'attert', value: 'Attert'},
+              {label: 'Eisch', id: 'eisch', value: 'Eisch'},
+              {label: 'Mamer', id: 'mamer', value: 'Mamer'},
+              {label: 'Pétrusse', id: 'petrusse', value: 'Petrusse'},
+              {label: 'Mess', id: 'mess', value: 'Mess'},
+              {label: 'Wiltz', id: 'wiltz', value: 'Wiltz'},
+              {label: 'Clerve', id: 'clerve', value: 'Clerve'},
+              {label: 'Syre', id: 'syre', value: 'Syre'},
+              {label: 'Gander', id: 'gander', value: 'Gander'},
 
             ],
 
           },
           hideExpression: 'model.watersource!="River"'
+        }, {
+          key: 'lake',
+          type: 'select',
+          templateOptions: {
+            type: 'select' ,
+            placeholder: 'Lake Name',
+            options: [
+              {label: 'Remerschen Baggerweier', id: 'remerschenbaggerweier', value: 'Remerschen Baggerweier'},
+              {label: 'Upper Sûre Lake ', id: 'uppersurelake', value: 'Upper Sure Lake'},
+              {label: 'Weiswampach Lake', id: 'weiswampachlake', value: 'Weiswampach Lake '},
+
+
+
+
+            ],
+
+          },
+          hideExpression: 'model.watersource!="Lake"'
         },
         {
           key: 'location',
