@@ -63,17 +63,13 @@ p{
 }
 
 
-::ng-deep formly-field-input:valid{
-  border-color: #ffcc66;
-}
-
-formly-field-input:r
 
 
-::ng-deep formly-field-input:required{
-  border-color: red;
-  border-width: 3px;
-}
+
+
+
+
+
 
 /*::ng-deep formly-form input:required {
   border-color: red;
@@ -98,7 +94,7 @@ formly-field-input:r
   margin-bottom: 20px;
   margin-top: 20px;
   alignment: center;
-  border: #ffcc66;
+border: #ffcc66;
   background-color: #ffcc66;
 
   font-size: 20px;
@@ -114,13 +110,7 @@ formly-field-input:r
 
 }
 
-::ng-deep input:required {
 
-  border-width: 3px;
-  border-color: red !important;
-  box-shadow: none !important;
-  -webkit-box-shadow: none !important;
-}
 
 
 
@@ -208,6 +198,39 @@ button[disabled]{
 
 
 }
+
+
+
+
+
+
+
+
+
+/*::ng-deep formly-field-input.ng-star-inserted{
+  border-color: red !important;
+  border-width: 3px !important;
+  outline: none !important;
+}*/
+
+
+
+::ng-deep formly-form.ng-pristine{
+  border-color: red !important;
+  border-width: 3px !important;
+  outline: none !important;
+}
+
+::ng-deep formly-form.ng-star-inserted{
+  border-color: red !important;
+  border-width: 3px !important;
+  outline: none !important;
+}
+
+
+
+
+
 
 
 
