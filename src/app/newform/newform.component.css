@@ -13,12 +13,12 @@ p{
 
 
 ::ng-deep .mat-step-header{
-  max-width: 25px;
-  //pointer-events: none !important;
+
+  pointer-events: none !important;
 
 
 }
-::ng-deep .mat-horizontal-stepper-header{}
+
 
 
 ::ng-deep .mat-horizontal-stepper-header-container {
@@ -126,7 +126,7 @@ border: #ffcc66;
   border-color: #ffcc66;
   color: white;
   text-align-last: center;
-  text-align: center;
+
   -ms-text-align-last: center;
   -moz-text-align-last: center;
 

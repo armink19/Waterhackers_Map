@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, AfterViewInit} from '@angular/core';
 // tslint:disable-next-line:label-position
 
 @Component({

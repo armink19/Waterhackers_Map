@@ -1,14 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import {FormlyFieldConfig, FormlyFormOptions} from '@ngx-formly/core';
 import {FormArray, FormGroup} from '@angular/forms';
-import {GeocodingService} from '../services/geocoding.service';
 import {SampleService} from '../services/sample.service';
 import {Router} from '@angular/router';
 import {Sample} from '../sample';
 import {DatePipe} from '@angular/common';
 import {Point} from '../point';
 import {Observable} from 'rxjs';
-import {HttpEventType, HttpResponse} from '@angular/common/http';
 
 export interface StepType {
   label: string;
@@ -30,7 +28,7 @@ export class NewformComponent implements OnInit {
   pipe = new DatePipe('en-US');
   selectedFiles: FileList;
   currentFile: File;
-  progress = 0;
+
   message = '';
 
   fileInfos: Observable<any>;
@@ -339,15 +337,7 @@ required: true
 
    this.locate();
 
-   /*   this.geoLocationService.getPosition().subscribe(
-        (pos: Position) => {
-          this.coordinates = {
-            latitude:  +(pos.coords.latitude),
-            longitude: +(pos.coords.longitude),
 
-          };
-
-        });*/
 
     }
 
